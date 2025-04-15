@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface UserType {
+  _id: string;
   number: number;
   type: string;
 }

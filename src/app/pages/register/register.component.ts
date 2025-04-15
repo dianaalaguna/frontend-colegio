@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     nombres: '',
     apellidos: '',
     telefono: '',
-    tipoUsuario: null as number | null
+    tipoUsuario: null as string | null
   };
 
   constructor(
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
         this.userTypes = tipos;
         if (tipos.length > 0) {
           // Selecciona automáticamente el primer tipo de usuario
-          this.formData.tipoUsuario = tipos[0].number;
+          this.formData.tipoUsuario = tipos[0]._id;
         }
       },
       error: (err) => {

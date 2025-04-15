@@ -111,7 +111,7 @@
             [ngClass]="{ 'is-invalid': tipoUsuarioInput.invalid && tipoUsuarioInput.touched }"
           >
             <option value="" disabled selected>Seleccione un tipo</option>
-            <option *ngFor="let tipo of userTypes" [value]="tipo.number">
+            <option *ngFor="let tipo of userTypes" [value]="tipo._id">
               {{ tipo.type }}
             </option>
           </select>
