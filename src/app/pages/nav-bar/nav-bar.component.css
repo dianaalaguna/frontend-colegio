@@ -1,0 +1,36 @@
+/* Estilo general para el navbar con fondo oscuro */
+.navbar {
+  background-color: #343a40; /* Fondo oscuro */
+}
+
+/* Establecer color blanco para los enlaces en los menús principales */
+.navbar-nav .nav-link {
+  color: white !important; /* Texto blanco para los enlaces */
+}
+
+/* Cambiar el color del texto cuando pasas el mouse sobre los enlaces del navbar */
+.navbar-nav .nav-link:hover {
+  color: #343a40 !important; /* Texto oscuro al hacer hover */
+  background-color: white; /* Fondo blanco al hacer hover */
+}
+
+/* Estilo para los ítems del menú desplegable */
+.navbar-nav .nav-item .dropdown-menu {
+  background-color: #343a40; /* Fondo oscuro para el menú desplegable */
+}
+
+/* Establecer color blanco para los ítems del menú desplegable */
+.navbar-nav .nav-item .dropdown-menu .dropdown-item {
+  color: white !important; /* Texto blanco para los ítems del menú desplegable */
+}
+
+/* Cambiar el color de los ítems del menú desplegable cuando pasa el mouse */
+.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+  color: #6c757d !important; /* Texto gris oscuro cuando pasa el mouse */
+  background-color: white; /* Fondo blanco al hacer hover */
+}
+
+/* Opcional: cambiar el color del texto al pasar el mouse sobre los menús principales */
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block; /* Mostrar el menú desplegable cuando el mouse pasa por encima del ítem */
+}

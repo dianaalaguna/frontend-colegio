@@ -1,18 +1,80 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-  <span *ngIf="user" class="navbar-text text-white me-3">
-    👤 {{ user.nombres }} {{ user.apellidos }} ({{ user.tipoUsuario.type }})
-  </span>
+  <a class="navbar-brand" routerLink="/">Conexión Educativa SW</a>
 
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav me-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/register" routerLinkActive="active">📝 Register</a>
+      <!-- Mostrar el menú para login si no está logueado -->
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">🔑 Login</a>
       </li>
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">📝 Registro</a>
+      </li>
+
+      <!-- Menú para usuarios logueados -->
       <li class="nav-item" *ngIf="isLoggedIn()">
-        <a class="nav-link" routerLink="/tasks" routerLinkActive="active">✅ Tasks</a>
+        <a class="nav-link" routerLink="/tasks" routerLinkActive="active">✅ Tareas</a>
+      </li>
+
+      <!-- Menú Usuarios (Solo para Coordinador) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && user?.tipoUsuario?.type === 'Coordinador'">
+        <a class="nav-link dropdown-toggle" href="#" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          👥 Usuarios
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="usersDropdown">
+          <li><a class="dropdown-item" routerLink="/usuarios/modify">✏️ Modificar</a></li>
+          <li><a class="dropdown-item" routerLink="/usuarios/delete">❌ Eliminar</a></li>
+        </ul>
+      </li>
+
+      <!-- Menú Asignaturas (Solo para Coordinador) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && user?.tipoUsuario?.type === 'Coordinador'">
+        <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          📚 Asignaturas
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="assignmentsDropdown">
+          <li><a class="dropdown-item" routerLink="/asignatura/create">➕ Crear</a></li>
+          <li><a class="dropdown-item" routerLink="/asignatura/assign-teacher">👨‍🏫 Asignar Profesor</a></li>
+          <li><a class="dropdown-item" routerLink="/asignatura/assign-student">👩‍🎓 Asignar Estudiante</a></li>
+          <li><a class="dropdown-item" routerLink="/asignatura/remove-student">❌ Quitar Estudiante</a></li>
+          <li><a class="dropdown-item" routerLink="/asignatura/students-list">📋 Lista de Estudiantes</a></li>
+        </ul>
+      </li>
+
+      <!-- Menú Estudiantes (Solo para Coordinador o Profesor) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && (user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">
+        <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          👨‍🎓 Estudiantes
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="studentsDropdown">
+          <li><a class="dropdown-item" routerLink="/estudiantes/create">➕ Crear</a></li>
+          <li><a class="dropdown-item" routerLink="/estudiantes/modify">✏️ Modificar</a></li>
+        </ul>
+      </li>
+
+      <!-- Menú Ver (Solo para Coordinador) -->
+      <li class="nav-item dropdown" *ngIf="isLoggedIn() && user?.tipoUsuario?.type === 'Coordinador'">
+        <a class="nav-link dropdown-toggle" href="#" id="viewDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          👁️ Ver
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="viewDropdown">
+          <li><a class="dropdown-item" routerLink="/ver/materias">📚 Materias</a></li>
+          <li><a class="dropdown-item" routerLink="/ver/estudiantes">👨‍🎓 Estudiantes</a></li>
+        </ul>
+      </li>
+
+      <!-- Menú Acerca de (Visible para todos los usuarios) -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/acerca-de" routerLinkActive="active">ℹ️ Acerca de</a>
       </li>
     </ul>
 
-    <button *ngIf="isLoggedIn()" class="btn btn-outline-light" (click)="logout()">Cerrar sesión</button>
+    <!-- Mostrar nombre y rol del usuario -->
+    <div *ngIf="isLoggedIn()">
+      <span class="navbar-text text-white me-3">
+        👤 {{ user?.nombres }} {{ user?.apellidos }} ({{ user?.tipoUsuario?.type }})
+      </span>
+      <button class="btn btn-outline-light" (click)="logout()">Cerrar sesión</button>
+    </div>
   </div>
 </nav>
