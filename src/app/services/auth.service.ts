@@ -16,6 +16,7 @@ export class AuthService {
     return this.http.post<any>(`${this.baseUrl}/login`, credentials)
       .pipe(tap(res => {
         sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('user', JSON.stringify(res.user));
       }));
   }
 
@@ -37,5 +38,10 @@ export class AuthService {
   isLoggedIn(): boolean {
     const token = sessionStorage.getItem('token');
     return !!token;  // Retorna true si hay un token, false si no
+  }
+
+  getUser() {
+    const user = sessionStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
   }
 }
