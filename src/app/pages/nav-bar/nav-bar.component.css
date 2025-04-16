@@ -22,12 +22,13 @@
 /* Establecer color blanco para los ítems del menú desplegable */
 .navbar-nav .nav-item .dropdown-menu .dropdown-item {
   color: white !important; /* Texto blanco para los ítems del menú desplegable */
+  transition: all 0.3s ease; /* Añadir transición suave */
 }
 
 /* Cambiar el color de los ítems del menú desplegable cuando pasa el mouse */
 .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
   color: #6c757d !important; /* Texto gris oscuro cuando pasa el mouse */
-  background-color: white; /* Fondo blanco al hacer hover */
+  background-image: linear-gradient(45deg, #ffffff, #e0e0e0); /* Degradado de blanco a gris claro */
 }
 
 /* Opcional: cambiar el color del texto al pasar el mouse sobre los menús principales */
