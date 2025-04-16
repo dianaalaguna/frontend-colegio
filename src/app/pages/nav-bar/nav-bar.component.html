@@ -5,10 +5,12 @@
     <ul class="navbar-nav me-auto">
       <!-- Mostrar el menú para login si no está logueado -->
       <li class="nav-item" *ngIf="!isLoggedIn()">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active">🔑 Login</a>
+        <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+        routerLink="/login" routerLinkActive="active">🔑 Login</a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn()">
-        <a class="nav-link" routerLink="/register" routerLinkActive="active">📝 Registro</a>
+        <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+        routerLink="/register" routerLinkActive="active">📝 Registro</a>
       </li>
 
       <!-- Menú para usuarios logueados -->
@@ -18,8 +20,8 @@
 
       <!-- Menú Usuarios (Solo para Coordinador) -->
       <li class="nav-item dropdown" *ngIf="isLoggedIn() && user?.tipoUsuario?.type === 'Coordinador'">
-        <a class="nav-link dropdown-toggle" id="usersDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false" routerLink="/usuarios">
+        <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+          routerLink="/usuarios">
           👥 Usuarios
         </a>
         <!--<ul class="dropdown-menu" aria-labelledby="usersDropdown">
@@ -36,8 +38,8 @@
           📚 Asignaturas
         </a>
         <ul class="dropdown-menu" aria-labelledby="assignmentsDropdown">
-          <li><a class="dropdown-item" routerLink="/asignatura"
-              *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕ Crear</a></li>
+          <li><a class="dropdown-item" routerLink="/asignatura" *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕
+              Crear</a></li>
           <li><a class="dropdown-item" routerLink="/asignatura/assign-teacher"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">👨‍🏫 Asignar Profesor</a></li>
           <li><a class="dropdown-item" routerLink="/asignatura/assign-student"
@@ -45,7 +47,8 @@
           <li><a class="dropdown-item" routerLink="/asignatura/remove-student"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">❌ Quitar Estudiante</a></li>
           <li><a class="dropdown-item" routerLink="/asignatura/students-list"
-              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📋 Lista de Estudiantes</a></li>
+              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📋 Lista de
+              Estudiantes</a></li>
         </ul>
       </li>
 
@@ -65,20 +68,24 @@
       <li class="nav-item dropdown"
         *ngIf="isLoggedIn() && (user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor' || user?.tipoUsuario?.type === 'Padre de Familia')">
         <a class="nav-link dropdown-toggle" href="#" id="viewDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false"  routerLink="estudiantes">
+          aria-expanded="false" routerLink="estudiantes">
           👁️ Ver
         </a>
         <ul class="dropdown-menu" aria-labelledby="viewDropdown">
           <li><a class="dropdown-item" routerLink="/ver/materias"
-              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📚 Materias</a></li>
+              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📚
+              Materias</a></li>
           <li><a class="dropdown-item" routerLink="estudiantes">👨‍🎓 Estudiantes</a></li>
         </ul>
       </li>
 
       <!-- Menú Acerca de (Visible para todos los usuarios) -->
       <div *ngIf="isLoggedIn()">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/acercade" routerLinkActive="active">ℹ️ Acerca de</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            routerLink="/acercade">
+            ℹ️ Acerca de
+          </a>
         </li>
       </div>
     </ul>
