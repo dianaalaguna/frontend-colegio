@@ -1,1 +1,71 @@
-<p>estudiantes works!</p>
+<div class="container mt-4">
+  <!--<h2>{{ isEditMode ? 'Editar Estudiante' : 'Crear Estudiante' }}</h2>-->
+  <h2>Crear Estudiante</h2>
+
+  <form (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="codigoEstudiante">Código Estudiante</label>
+      <input
+        type="text"
+        id="codigoEstudiante"
+        class="form-control"
+        [(ngModel)]="estudiante.codigoEstudiante"
+        name="codigoEstudiante"
+
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nombres">Nombres</label>
+      <input
+        type="text"
+        id="nombres"
+        class="form-control"
+        [(ngModel)]="estudiante.nombres"
+        name="nombres"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="apellidos">Apellidos</label>
+      <input
+        type="text"
+        id="apellidos"
+        class="form-control"
+        [(ngModel)]="estudiante.apellidos"
+        name="apellidos"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="correoTutor">Correo Tutor</label>
+      <input
+        type="email"
+        id="correoTutor"
+        class="form-control"
+        [(ngModel)]="estudiante.correoTutor"
+        name="correoTutor"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="nacimiento">Fecha de Nacimiento</label>
+      <input
+        type="date"
+        id="nacimiento"
+        class="form-control"
+        [(ngModel)]="estudiante.nacimiento"
+        name="nacimiento"
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">
+      Crear Estudiante
+    </button>
+  </form>
+</div>

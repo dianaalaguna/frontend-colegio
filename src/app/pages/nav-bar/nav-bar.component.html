@@ -55,11 +55,11 @@
       <!-- Menú Estudiantes (Solo para Coordinador) -->
       <li class="nav-item dropdown" *ngIf="isLoggedIn() && (user?.tipoUsuario?.type === 'Coordinador')">
         <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false" routerLink="/estudiantes">
+          aria-expanded="false">
           👨‍🎓 Estudiantes
         </a>
         <ul class="dropdown-menu" aria-labelledby="studentsDropdown">
-          <li><a class="dropdown-item" routerLink="/estudiantes/create">➕ Crear</a></li>
+          <li><a class="dropdown-item" routerLink="/estudiantes">➕ Crear</a></li>
           <li><a class="dropdown-item" routerLink="/estudiantes/modify">✏️ Modificar</a></li>
         </ul>
       </li>
