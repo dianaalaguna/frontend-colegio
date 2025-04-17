@@ -60,7 +60,7 @@
         </a>
         <ul class="dropdown-menu" aria-labelledby="studentsDropdown">
           <li><a class="dropdown-item" routerLink="/estudiantes">➕ Crear</a></li>
-          <li><a class="dropdown-item" routerLink="/estudiantes/modify">✏️ Modificar</a></li>
+          <li><a class="dropdown-item" routerLink="/estudiantes-lista">✏️ Modificar</a></li>
         </ul>
       </li>
 
@@ -68,14 +68,14 @@
       <li class="nav-item dropdown"
         *ngIf="isLoggedIn() && (user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor' || user?.tipoUsuario?.type === 'Padre de Familia')">
         <a class="nav-link dropdown-toggle" href="#" id="viewDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false" routerLink="estudiantes">
+          aria-expanded="false">
           👁️ Ver
         </a>
         <ul class="dropdown-menu" aria-labelledby="viewDropdown">
           <li><a class="dropdown-item" routerLink="/ver/materias"
               *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📚
               Materias</a></li>
-          <li><a class="dropdown-item" routerLink="estudiantes">👨‍🎓 Estudiantes</a></li>
+          <li><a class="dropdown-item" routerLink="estudiantes-lista">👨‍🎓 Estudiantes</a></li>
         </ul>
       </li>
 

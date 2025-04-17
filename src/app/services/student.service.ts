@@ -9,21 +9,29 @@ import { Student } from '../models/student.model';
 export class StudentService {
   private baseUrl = 'http://localhost:5000/api/student';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   createStudent(student: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/createstudent`, student);
   }
 
-  updateStudent(student: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/updatestudent/${student.codigoEstudiante}`, student);
+  updateStudent(codigoEstudiante: string, data: Partial<Student>): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updatestudentbycode/${codigoEstudiante}`, data);
   }
 
   getStudentByCode(codigoEstudiante: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/getstudentbycode/${codigoEstudiante}`);
   }
 
+  getStudentsByEmail(correoTutor: string): Observable<Student[]> {
+    return this.http.get<Student[]>(`${this.baseUrl}/getstudentsbyemail/${correoTutor}`);
+  }
+
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(`${this.baseUrl}/getallstudents`);
+  }
+
+  deleteUser(codigoEstudiante: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/deletestudentbycode/${codigoEstudiante}`);
   }
 }

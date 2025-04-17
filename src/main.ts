@@ -47,6 +47,7 @@ const routes: Routes = [
   { path: 'usuarios', loadComponent: () => import('./app/pages/usuarios/usuarios.component').then(m => m.UsuariosComponent), canActivate: [AuthGuard] },
   { path: 'asignatura', loadComponent: () => import('./app/pages/asignaturas/asignaturas.component').then(m => m.AsignaturasComponent), canActivate: [AuthGuard] },
   { path: 'estudiantes', loadComponent: () => import('./app/pages/estudiantes/estudiantes.component').then(m => m.EstudiantesComponent), canActivate: [AuthGuard] },
+  { path: 'estudiantes-lista', loadComponent: () => import('./app/pages/estudiantes-lista/estudiantes-lista.component').then(m => m.EstudiantesListaComponent), canActivate: [AuthGuard] },
   { path: 'acercade', loadComponent: () => import('./app/pages/acercade/acercade.component').then(m => m.AcercadeComponent), canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/acercade', pathMatch: 'full' }
 ];
