@@ -6,16 +6,11 @@
       <!-- Mostrar el menú para login si no está logueado -->
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-        routerLink="/login" routerLinkActive="active">🔑 Login</a>
+          routerLink="/login" routerLinkActive="active">🔑 Login</a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" id="usersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-        routerLink="/register" routerLinkActive="active">📝 Registro</a>
-      </li>
-
-      <!-- Menú para usuarios logueados -->
-      <li class="nav-item dropdown" *ngIf="isLoggedIn()">
-        <a class="nav-link dropdown-toggle" routerLink="/tasks" routerLinkActive="active">✅ Tareas</a>
+          routerLink="/register" routerLinkActive="active">📝 Registro</a>
       </li>
 
       <!-- Menú Usuarios (Solo para Coordinador) -->
@@ -24,10 +19,6 @@
           routerLink="/usuarios">
           👥 Usuarios
         </a>
-        <!--<ul class="dropdown-menu" aria-labelledby="usersDropdown">
-          <li><a class="dropdown-item" routerLink="/usuarios/modify">✏️ Modificar</a></li>
-          <li><a class="dropdown-item" routerLink="/usuarios/delete">❌ Eliminar</a></li>
-        </ul>-->
       </li>
 
       <!-- Menú Asignaturas (Solo para Coordinador y Profesor) -->
@@ -46,9 +37,6 @@
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">👩‍🎓 Asignar Estudiante</a></li>
           <li><a class="dropdown-item" routerLink="/asignatura/remove-student"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">❌ Quitar Estudiante</a></li>
-          <li><a class="dropdown-item" routerLink="/asignatura/students-list"
-              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📋 Lista de
-              Estudiantes</a></li>
         </ul>
       </li>
 
@@ -72,9 +60,7 @@
           👁️ Ver
         </a>
         <ul class="dropdown-menu" aria-labelledby="viewDropdown">
-          <li><a class="dropdown-item" routerLink="/ver/materias"
-              *ngIf="(user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">📚
-              Materias</a></li>
+          <li><a class="dropdown-item" routerLink="subject-list">📚 Materias</a></li>
           <li><a class="dropdown-item" routerLink="estudiantes-lista">👨‍🎓 Estudiantes</a></li>
         </ul>
       </li>

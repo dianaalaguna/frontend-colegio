@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📚 Materias</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Grado</th>
+        <th>Periodo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subject of subjects">
+        <td>
+          <a [routerLink]="['/subject-detail', subject._id]" class="text-decoration-none">
+            {{ subject.nombre }}
+          </a>
+        </td>
+        <td>{{ subject.grado }}</td>
+        <td>{{ subject.periodo }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="subjects.length === 0" class="alert alert-info text-center">
+    No hay materias registradas.
+  </div>
+</div>

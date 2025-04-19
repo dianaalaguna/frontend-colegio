@@ -1,0 +1,52 @@
+<div class="container mt-4" *ngIf="subject; else loading">
+  <div class="mb-4">
+    <h2 class="mb-1">{{ subject.nombre }}</h2>
+    <p class="text-muted">
+      Grado: <strong>{{ subject.grado }}</strong> |
+      Periodo: <strong>{{ subject.periodo }}</strong>
+    </p>
+    <a routerLink="/subject-list" class="btn btn-outline-secondary btn-sm">← Volver al listado</a>
+  </div>
+
+  <div class="mb-4">
+    <h4>👨‍🏫 Profesor/es asignado/s</h4>
+    <ul class="list-group">
+      <li *ngFor="let prof of subject.profesores" class="list-group-item">
+        {{ prof.nombres }} {{ prof.apellidos }} <span class="text-muted">({{ prof.username }})</span>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 class="mb-3">👨‍🎓 Estudiantes</h4>
+
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Código</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let est of subject.estudiantes">
+          <td>{{ est.codigoEstudiante }}</td>
+          <td>{{ est.nombres }}</td>
+          <td>{{ est.apellidos }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="subject.estudiantes.length === 0" class="alert alert-warning text-center">
+      No hay estudiantes asignados a esta materia.
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="container mt-4">
+    <div class="alert alert-info text-center">
+      Cargando datos de la materia...
+    </div>
+  </div>
+</ng-template>
