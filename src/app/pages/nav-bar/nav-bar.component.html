@@ -21,19 +21,19 @@
         </a>
       </li>
 
-      <!-- Menú Asignaturas (Solo para Coordinador y Profesor) -->
+      <!-- Menú Asignaturas (Solo para Coordinador) -->
       <li class="nav-item dropdown"
-        *ngIf="isLoggedIn() && (user?.tipoUsuario?.type === 'Coordinador' || user?.tipoUsuario?.type === 'Profesor')">
+        *ngIf="isLoggedIn() && user?.tipoUsuario?.type === 'Coordinador'">
         <a class="nav-link dropdown-toggle" href="#" id="assignmentsDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false" routerLink="/asignatura">
+          aria-expanded="false">
           📚 Asignaturas
         </a>
         <ul class="dropdown-menu" aria-labelledby="assignmentsDropdown">
-          <li><a class="dropdown-item" routerLink="/subject-create" *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕
-              Crear</a></li>
+          <li><a class="dropdown-item" routerLink="/subject-create"
+              *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕ Crear</a></li>
           <li><a class="dropdown-item" routerLink="/asignar-profesor"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">👨‍🏫 Asignar Profesor</a></li>
-          <li><a class="dropdown-item" routerLink="/asignatura/assign-student"
+          <li><a class="dropdown-item" routerLink="/asignar-estudiante"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">👩‍🎓 Asignar Estudiante</a></li>
         </ul>
       </li>

@@ -66,4 +66,10 @@ export class SubjectService {
     return this.http.post(`${this.baseUrl}/${subjectId}/add-profesor`, { profesorId });
   }
 
+  asociarEstudiante(subjectId: string, studentId: string) {
+    return this.http.post(`${this.baseUrl}/${subjectId}/add-estudiante`, {
+      estudianteId: studentId,
+    });
+  }
+
 }

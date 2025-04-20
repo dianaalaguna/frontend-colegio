@@ -1,0 +1,24 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📚 Asignar Estudiantes a Materia</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Grado</th>
+        <th>Periodo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subject of subjects;">
+        <td>
+          <a [routerLink]="['/asignar-estudiantes', subject._id]" class="text-decoration-none">
+            {{ subject.nombre }}
+          </a>
+        </td>
+        <td>{{ subject.grado }}</td>
+        <td>{{ subject.periodo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

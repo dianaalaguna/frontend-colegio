@@ -34,4 +34,9 @@ export class StudentService {
   deleteUser(codigoEstudiante: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deletestudentbycode/${codigoEstudiante}`);
   }
+
+  getStudentsNotAssigned(subjectId: string): Observable<Student[]> {
+    const url = `${this.baseUrl}/${subjectId}/unassigned-students`;
+    return this.http.get<Student[]>(url);
+  }
 }

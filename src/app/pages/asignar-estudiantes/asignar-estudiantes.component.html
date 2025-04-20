@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2 class="mb-4">👨‍🎓 Estudiantes no asignados a esta materia</h2>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Seleccionar</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Código</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of unassignedStudents">
+        <td>
+          <input
+          type="checkbox"
+          (change)="onCheckboxChange($event, student._id!)"
+        />
+
+        </td>
+        <td>{{ student.nombres }}</td>
+        <td>{{ student.apellidos }}</td>
+        <td>{{ student.codigoEstudiante }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="unassignedStudents.length === 0" class="alert alert-info text-center">
+    No hay estudiantes por asignar.
+  </div>
+
+  <button class="btn btn-primary mt-3" (click)="asignarEstudiantes()">Asignar seleccionados</button>
+</div>
