@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📚 Editar Materia</h2>
+
+  <!-- Verificamos que 'subject' no sea nulo -->
+  <div *ngIf="subject; else loading">
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          class="form-control"
+          [(ngModel)]="subject.nombre"
+          name="nombre"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="grado" class="form-label">Grado</label>
+        <input
+          type="text"
+          id="grado"
+          class="form-control"
+          [(ngModel)]="subject.grado"
+          name="grado"
+          required
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="periodo" class="form-label">Periodo</label>
+        <input
+          type="number"
+          id="periodo"
+          class="form-control"
+          [(ngModel)]="subject.periodo"
+          name="periodo"
+          required
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
+    <!-- Mensaje de éxito o error -->
+    <div *ngIf="updateMessage" class="mt-4 alert" [ngClass]="{'alert-success': updateMessage.includes('éxito'), 'alert-danger': updateMessage.includes('error')}">
+      {{ updateMessage }}
+    </div>
+  </div>
+
+  <!-- Plantilla de carga -->
+  <ng-template #loading>
+    <p>Cargando la materia...</p>
+  </ng-template>
+</div>

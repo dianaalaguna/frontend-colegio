@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Subject } from '../models/subject.model';
 
 @Injectable({ providedIn: 'root' })
 export class SubjectService {
@@ -28,6 +29,11 @@ export class SubjectService {
   // Método para eliminar una materia por ID
   deleteSubject(id: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deletesubjectbyid/${id}`);
+  }
+
+  // Actualizar materia por ID
+  updateSubject(id: string, subject: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/updateSubjectById/${id}`, subject);
   }
 
 }
