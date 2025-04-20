@@ -29,7 +29,7 @@
           📚 Asignaturas
         </a>
         <ul class="dropdown-menu" aria-labelledby="assignmentsDropdown">
-          <li><a class="dropdown-item" routerLink="/asignatura" *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕
+          <li><a class="dropdown-item" routerLink="/subject-create" *ngIf="user?.tipoUsuario?.type === 'Coordinador'">➕
               Crear</a></li>
           <li><a class="dropdown-item" routerLink="/asignatura/assign-teacher"
               *ngIf="user?.tipoUsuario?.type === 'Coordinador'">👨‍🏫 Asignar Profesor</a></li>

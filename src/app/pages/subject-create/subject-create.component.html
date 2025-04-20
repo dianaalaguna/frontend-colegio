@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">➕ Crear Materia</h2>
+
+      <div *ngIf="mensaje" class="alert alert-info text-center">
+        {{ mensaje }}
+      </div>
+
+      <form (ngSubmit)="crearMateria()">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" class="form-control" [(ngModel)]="nombre" name="nombre" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="grado" class="form-label">Grado</label>
+          <input type="text" id="grado" class="form-control" [(ngModel)]="grado" name="grado" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="periodo" class="form-label">Periodo</label>
+          <input type="number" id="periodo" class="form-control" [(ngModel)]="periodo" name="periodo" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Crear Materia</button>
+      </form>
+    </div>
+  </div>
+</div>

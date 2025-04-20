@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'estudiantes-lista', loadComponent: () => import('./app/pages/estudiantes-lista/estudiantes-lista.component').then(m => m.EstudiantesListaComponent), canActivate: [AuthGuard] },
   { path: 'subject-list', loadComponent: () => import('./app/pages/subject-list/subject-list.component').then(m => m.SubjectListComponent), canActivate: [AuthGuard] },
   { path: 'subject-detail/:id', loadComponent: () => import('./app/pages/subject-detail/subject-detail.component').then(m => m.SubjectDetailComponent), canActivate: [AuthGuard] },
+  { path: 'subject-create', loadComponent: () => import('./app/pages/subject-create/subject-create.component').then(m => m.SubjectCreateComponent), canActivate: [AuthGuard] },
   { path: 'acercade', loadComponent: () => import('./app/pages/acercade/acercade.component').then(m => m.AcercadeComponent), canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/acercade', pathMatch: 'full' }
 ];

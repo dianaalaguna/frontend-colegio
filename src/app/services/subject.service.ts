@@ -20,4 +20,9 @@ export class SubjectService {
       map(subjects => subjects.find(subject => subject._id === id))
     );
   }
+
+  crearMateria(data: { nombre: string; grado: string; periodo: number }) {
+    return this.http.post(`${this.baseUrl}/createsubject`, data);
+  }
+
 }
