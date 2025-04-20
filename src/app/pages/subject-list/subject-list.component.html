@@ -7,6 +7,7 @@
         <th>Nombre</th>
         <th>Grado</th>
         <th>Periodo</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -18,11 +19,22 @@
         </td>
         <td>{{ subject.grado }}</td>
         <td>{{ subject.periodo }}</td>
+        <td>
+          <!-- Botón Eliminar -->
+          <button class="btn btn-danger btn-sm" (click)="deleteSubject(subject._id)">
+            Eliminar
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 
   <div *ngIf="subjects.length === 0" class="alert alert-info text-center">
     No hay materias registradas.
+  </div>
+
+  <!-- Mensaje de eliminación -->
+  <div *ngIf="deleteMessage" class="alert alert-success mt-4">
+    {{ deleteMessage }}
   </div>
 </div>
