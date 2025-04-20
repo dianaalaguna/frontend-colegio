@@ -10,11 +10,32 @@
 
   <div class="mb-4">
     <h4>👨‍🏫 Profesor/es asignado/s</h4>
-    <ul class="list-group">
-      <li *ngFor="let prof of subject.profesores" class="list-group-item">
-        {{ prof.nombres }} {{ prof.apellidos }} <span class="text-muted">({{ prof.username }})</span>
-      </li>
-    </ul>
+    <table class="table table-bordered table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Usuario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prof of subject.profesores">
+          <td>{{ prof.nombres }}</td>
+          <td>{{ prof.apellidos }}</td>
+          <td>{{ prof.username }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="desvincularProfesor(prof._id)">
+              Desvincular
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="subject.profesores.length === 0" class="alert alert-warning text-center">
+      No hay profesores asignados a esta materia.
+    </div>
   </div>
 
   <div>
@@ -26,6 +47,7 @@
           <th>Código</th>
           <th>Nombres</th>
           <th>Apellidos</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +55,11 @@
           <td>{{ est.codigoEstudiante }}</td>
           <td>{{ est.nombres }}</td>
           <td>{{ est.apellidos }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="desvincularEstudiante(est._id)">
+              Desvincular
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

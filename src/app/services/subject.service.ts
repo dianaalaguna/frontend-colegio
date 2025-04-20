@@ -36,4 +36,16 @@ export class SubjectService {
     return this.http.put(`${this.baseUrl}/updateSubjectById/${id}`, subject);
   }
 
+  removeEstudianteFromSubject(subjectId: string, estudianteId: string) {
+    return this.http.delete(`${this.baseUrl}/remove-estudiante/${subjectId}`, {
+      body: { estudianteId }
+    });
+  }
+
+  removeProfesorFromSubject(subjectId: string, profesorId: string) {
+    return this.http.delete(`${this.baseUrl}/remove-profesor/${subjectId}`, {
+      body: { profesorId }
+    });
+  }
+
 }
