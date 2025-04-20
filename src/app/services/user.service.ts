@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
 export class UserService {
   private baseUrl = 'http://localhost:5000/api/user';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // 🔹 Obtener todos los usuarios
   getUsers(): Observable<User[]> {
@@ -30,5 +30,10 @@ export class UserService {
   // 🔹 Eliminar un usuario por username
   deleteUser(username: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/deleteuserbyusername/${username}`);
+  }
+
+  // Obtener los usuarios de tipo "Profesor"
+  getProfesores(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/getallprofesores`);
   }
 }

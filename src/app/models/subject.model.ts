@@ -7,4 +7,6 @@ export interface Subject {
   estado?: boolean;
   profesores?: string[];
   estudiantes?: string[];
+
+  selectedProfesorId?: string;
 }

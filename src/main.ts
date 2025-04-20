@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'subject-detail/:id', loadComponent: () => import('./app/pages/subject-detail/subject-detail.component').then(m => m.SubjectDetailComponent), canActivate: [AuthGuard] },
   { path: 'subject-create', loadComponent: () => import('./app/pages/subject-create/subject-create.component').then(m => m.SubjectCreateComponent), canActivate: [AuthGuard] },
   { path: 'subject-update/:id', loadComponent: () => import('./app/pages/subject-update/subject-update.component').then(m => m.SubjectUpdateComponent), canActivate: [AuthGuard] },
+  { path: 'asignar-profesor', loadComponent: () => import('./app/pages/asignar-profesor/asignar-profesor.component').then(m => m.AsignarProfesorComponent), canActivate: [AuthGuard] },
   { path: 'acercade', loadComponent: () => import('./app/pages/acercade/acercade.component').then(m => m.AcercadeComponent), canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/acercade', pathMatch: 'full' }
 ];

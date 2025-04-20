@@ -9,7 +9,8 @@ import { UserTypeService, UserType } from '../../services/user-type.service';
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   userTypes: UserType[] = [];

@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2 class="mb-4">📚 Asignar Profesor a Materia</h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Materias</h4>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Grado</th>
+            <th>Periodo</th>
+            <th>Profesores</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let subject of subjects; trackBy: trackBySubjectId">
+            <td>{{ subject.nombre }}</td>
+            <td>{{ subject.grado }}</td>
+            <td>{{ subject.periodo }}</td>
+            <td>
+              <select class="form-control" [(ngModel)]="subject.selectedProfesorId" [attr.key]="subject._id">
+                <option value="" disabled>Profesor</option>
+                <option *ngFor="let profesor of profesores" [value]="profesor._id">
+                  {{ profesor.nombres }} {{ profesor.apellidos }}
+                </option>
+              </select>
+
+            </td>
+            <td>
+              <button class="btn btn-success mt-3" (click)="asignarProfesor(subject)">Asignar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

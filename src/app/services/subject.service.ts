@@ -7,7 +7,7 @@ import { Subject } from '../models/subject.model';
 
 @Injectable({ providedIn: 'root' })
 export class SubjectService {
-  private baseUrl = 'http://localhost:5000/api/subject'; // Ajusta si usas proxy
+  private baseUrl = 'http://localhost:5000/api/subject';
 
   constructor(private http: HttpClient) { }
 
@@ -15,9 +15,12 @@ export class SubjectService {
     return this.http.get<any[]>(`${this.baseUrl}/with-users`);
   }
 
+  getSubjectsWithoutProfessors(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/without-professors`);
+  }
+
   getSubjectById(id: string): Observable<any> {
     return this.getSubjectsWithUsers().pipe(
-      // Como no hay un endpoint directo por ID con users, filtramos
       map(subjects => subjects.find(subject => subject._id === id))
     );
   }
@@ -46,6 +49,21 @@ export class SubjectService {
     return this.http.delete(`${this.baseUrl}/remove-profesor/${subjectId}`, {
       body: { profesorId }
     });
+  }
+
+  // Método para asociar un profesor a una materia
+  addProfesorToSubject(subjectId: string, profesorId: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/add-profesor-to-subject/${subjectId}`, { profesorId });
+  }
+
+  // Obtener todas las materias
+  getAllSubjects(): Observable<Subject[]> {
+    return this.http.get<Subject[]>(`${this.baseUrl}/getallsubjects`);
+  }
+
+  // Asociar un profesor a una materia
+  asociarProfesor(subjectId: string, profesorId: string) {
+    return this.http.post(`${this.baseUrl}/${subjectId}/add-profesor`, { profesorId });
   }
 
 }

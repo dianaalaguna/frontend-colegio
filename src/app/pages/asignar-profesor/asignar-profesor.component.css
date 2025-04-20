@@ -1,3 +1,8 @@
+/* Agrega el estilo si lo deseas */
+.table td, .table th {
+  vertical-align: middle;
+}
+
 select.form-control {
   appearance: auto;
   -webkit-appearance: auto;
