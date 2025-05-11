@@ -19,7 +19,7 @@ export class TabSessionService {
     const hasToken = !!sessionStorage.getItem('token');
 
     if (isDuplicate && !isAlreadyOnLogin && hasToken) {
-      console.warn('⚠️ Pestaña duplicada detectada, cerrando sesión');
+      console.warn('Pestaña duplicada detectada, cerrando sesión');
       sessionStorage.removeItem('token');
       localStorage.removeItem('active-tab-id');
       this.router.navigate(['/login']); // ⬅️ redirección Angular-friendly

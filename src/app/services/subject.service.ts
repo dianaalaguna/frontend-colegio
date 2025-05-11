@@ -1,13 +1,14 @@
-// src/app/services/subject.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Subject } from '../models/subject.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SubjectService {
-  private baseUrl = 'http://localhost:5000/api/subject';
+  //private baseUrl = 'http://localhost:5000/api/subject';
+  private baseUrl = `${environment.apiUrl}/subject`;
 
   constructor(private http: HttpClient) { }
 
