@@ -5,7 +5,9 @@ import { map } from 'rxjs/operators';
 import { Subject } from '../models/subject.model';
 import { environment } from '../../environments/environment';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class SubjectService {
   //private baseUrl = 'http://localhost:5000/api/subject';
   private baseUrl = `${environment.apiUrl}/subject`;
