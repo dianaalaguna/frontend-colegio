@@ -37,6 +37,8 @@ bootstrapApplication(AppComponent, {
       useClass: AuthInterceptor,
       multi: true
     },
-    importProvidersFrom(FormsModule)
+    importProvidersFrom(FormsModule),
+    AuthGuard,
+    NoAuthGuard
   ]
 });
