@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[147],{1147:(c,e,t)=>{t.r(e),t.d(e,{AsignaturasComponent:()=>r});var o=t(316),n=t(8559);let r=(()=>{class a{static{this.\u0275fac=function(s){return new(s||a)}}static{this.\u0275cmp=n.VBU({type:a,selectors:[["app-asignaturas"]],standalone:!0,features:[n.aNF],decls:2,vars:0,template:function(s,l){1&s&&(n.j41(0,"p"),n.EFF(1,"asignaturas works!"),n.k0s())},dependencies:[o.MD]})}}return a})()}}]);
+//# sourceMappingURL=147.2da08f64207ff0ce.js.map
